@@ -4,6 +4,7 @@ import {
   IProductCreated } from './productsInterface';
 import { IError } from './errorInterface';
 import { IUserCreate } from './usersInterface';
+import { IPayload } from './payloadInterface';
 
 export {
   IProductsList,
@@ -11,4 +12,5 @@ export {
   IProductCreated,
   IError,
   IUserCreate,
+  IPayload,
 };
