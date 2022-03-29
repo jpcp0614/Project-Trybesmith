@@ -17,3 +17,7 @@ export interface IProductCreated {
     amount: string;
   }
 }
+
+export interface IProductIds {
+  id: number | undefined;
+}
