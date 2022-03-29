@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import ProductsService from '../services/product.services';
+import { ProductsService } from '../services';
 import { IProductCreate } from '../interfaces';
 
 export default class ProductsController {

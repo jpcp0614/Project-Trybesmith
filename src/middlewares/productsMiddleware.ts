@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import productSchema from '../schemas/productsSchema';
+import { productSchema } from '../schemas';
 import { IProductCreate } from '../interfaces';
 
 const validateProduct = (req: Request, res: Response, next: NextFunction) => {
