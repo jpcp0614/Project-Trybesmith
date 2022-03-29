@@ -7,6 +7,7 @@ import { IError } from './errorInterface';
 import { IUserCreate } from './usersInterface';
 import { IPayload } from './payloadInterface';
 import { IOrdersList, IOrder } from './ordersInterface';
+import { IDecoded } from './decodedInterface';
 
 export {
   IProductsList,
@@ -18,4 +19,5 @@ export {
   IOrdersList,
   IProductIds,
   IOrder,
+  IDecoded,
 };
