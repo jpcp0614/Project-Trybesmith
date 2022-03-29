@@ -1,5 +1,5 @@
 import { connection, OrdersModel } from '../models';
-import { IOrdersList } from '../interfaces';
+import { IOrdersList, IAddOrder, IOrder } from '../interfaces';
 
 export default class OrdersService {
   public model: OrdersModel;
@@ -7,6 +7,12 @@ export default class OrdersService {
   constructor() {
     this.model = new OrdersModel(connection);
   }
+
+  public create = async (order: IAddOrder): Promise<IOrder> => {
+    const newOrder = await this.model.create(order);
+
+    return newOrder;
+  };
 
   public getAll = async () => {
     const orders: IOrdersList[] = await this.model.getAll();
