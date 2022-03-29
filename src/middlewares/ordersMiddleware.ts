@@ -1,10 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { orderSchema } from '../schemas';
-import { IOrder } from '../interfaces';
 
 const validateOrder = (req: Request, _res: Response, next: NextFunction) => {
-  const order: IOrder = req.body;
-  const { error } = orderSchema.validate(order);
+  const { products } = req.body;
+  const { error } = orderSchema.validate({ products });
 
   if (error) {
     const [status, message] = error.message.split('|');
