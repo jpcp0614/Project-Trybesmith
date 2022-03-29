@@ -3,3 +3,8 @@ export interface IOrdersList {
   userId: number;
   products: number;
 }
+
+export interface IOrder {
+  userId: number;
+  products: number[];
+}

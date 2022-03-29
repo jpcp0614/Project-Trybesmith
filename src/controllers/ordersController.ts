@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { OrdersService } from '../services';
-import { IAddOrder } from '../interfaces';
+import { IOrder } from '../interfaces';
 
 export default class OrdersController {
   public service: OrdersService;
@@ -11,7 +11,7 @@ export default class OrdersController {
   }
 
   public create = async (req: Request, res: Response, _next: NextFunction) => {
-    const order: IAddOrder = req.body;
+    const order: IOrder = req.body;
 
     const newOrder = await this.service.create(order);
 
