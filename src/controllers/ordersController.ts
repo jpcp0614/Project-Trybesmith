@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { OrdersService } from '../services';
-import { IOrder } from '../interfaces';
 
 export default class OrdersController {
   public service: OrdersService;
@@ -9,11 +8,11 @@ export default class OrdersController {
   constructor() {
     this.service = new OrdersService();
   }
-
+  
   public create = async (req: Request, res: Response, _next: NextFunction) => {
-    const order: IOrder = req.body;
-
-    const newOrder = await this.service.create(order);
+    const { products } = req.body;
+    const { userData } = req;
+    const newOrder = await this.service.create({ userId: userData!.id, products });
 
     return res.status(StatusCodes.CREATED).json({ order: newOrder });
   };
