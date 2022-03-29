@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { userSchema } from '../schemas';
 import { IUserCreate } from '../interfaces';
 
-const validateUser = (req: Request, res: Response, next: NextFunction) => {
+const validateUser = (req: Request, _res: Response, next: NextFunction) => {
   const user: IUserCreate = req.body;
   const { error } = userSchema.validate(user);
 
