@@ -1,8 +1,8 @@
 import {
   IProductsList,
   IProductCreate,
-  IProductCreated } from './products.interface';
-import { IError } from './error.interface';
+  IProductCreated } from './productsInterface';
+import { IError } from './errorInterface';
 
 export {
   IProductsList,

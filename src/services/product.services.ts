@@ -1,6 +1,6 @@
 import { NotFoundError } from 'restify-errors';
-import { connection, ProductsModel } from '../models/index.models';
-import { IProductsList, IProductCreate, IProductCreated } from '../interfaces/index.interfaces';
+import { connection, ProductsModel } from '../models';
+import { IProductsList, IProductCreate, IProductCreated } from '../interfaces';
 
 export default class ProductsService {
   public model: ProductsModel;

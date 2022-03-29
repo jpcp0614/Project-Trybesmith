@@ -1,5 +1,5 @@
 import connection from './connection';
-import ProductsModel from './products.model';
+import ProductsModel from './productsModel';
 
 export {
   connection,

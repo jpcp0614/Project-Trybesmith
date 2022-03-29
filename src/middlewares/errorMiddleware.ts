@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { IError } from '../interfaces/index.interfaces';
+import { IError } from '../interfaces';
 
 const middlewareError = (err: IError, _req: Request, res: Response, next: NextFunction) => {
   const { message, name, status } = err;

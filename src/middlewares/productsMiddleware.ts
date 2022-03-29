@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import productSchema from '../schemas/products.schema';
-import { IProductCreate } from '../interfaces/index.interfaces';
+import productSchema from '../schemas/productsSchema';
+import { IProductCreate } from '../interfaces';
 
 const validateProduct = (req: Request, res: Response, next: NextFunction) => {
   const product: IProductCreate = req.body;
