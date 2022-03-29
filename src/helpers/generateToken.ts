@@ -8,8 +8,8 @@ const JWT_CONFIG: SignOptions = {
   algorithm: 'HS256',
 };
 
-const generateToken = (payload: IPayload): string => {
-  const token = jwt.sign({ data: payload }, JWT_SECRET, JWT_CONFIG);
+const generateToken = ({ id, username }: IPayload): string => {
+  const token = jwt.sign({ id, username }, JWT_SECRET, JWT_CONFIG);
 
   return token;
 };
