@@ -1,6 +1,6 @@
 import { NotFoundError } from 'restify-errors';
 import { connection, ProductsModel } from '../models/index.models';
-import { IProductsList } from '../interfaces/products.interface';
+import { IProductsList, IProductCreate, IProductCreated } from '../interfaces/products.interface';
 
 export default class ProductsService {
   public model: ProductsModel;
@@ -17,5 +17,11 @@ export default class ProductsService {
     }
 
     return products;
+  };
+
+  public create = async (product: IProductCreate): Promise<IProductCreated> => {
+    const createdProduct = await this.model.create(product);
+
+    return createdProduct;
   };
 }

@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import ProductsService from '../services/product.services';
+import { IProductCreate } from '../interfaces/index.interfaces';
 
 export default class ProductsController {
   public service: ProductsService;
@@ -13,5 +14,12 @@ export default class ProductsController {
     const products = await this.service.getAll();
 
     return res.status(StatusCodes.OK).json(products);
+  };
+
+  public create = async (req: Request, res: Response, _next: NextFunction) => {
+    const product: IProductCreate = req.body;
+    const createdProduct = await this.service.create(product);
+
+    return res.status(StatusCodes.CREATED).json(createdProduct);
   };
 }
