@@ -19,13 +19,8 @@ export default class OrdersService {
     
     const arrayOrders = orders.map(async (order) => {
       const products = await this.model.getProductsByOrderId(order.id);
-      // console.log(order); // -> objetos com id e userId
-      // console.log(products); // -> arrays com os objetos com id
-
       const productsIds = products.map((product) => product.id);
-      // console.log(productsIds); // -> array de ids
-      // console.log({ ...order }); // -> objetos com id e userId
-      // console.log({ ...order, products: productsIds }); // -> espalhamento em objeto literal, colocando o array productsIds na chave products
+
       return { 
         ...order,
         products: productsIds,
