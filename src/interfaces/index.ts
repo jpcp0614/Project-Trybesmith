@@ -6,7 +6,7 @@ import {
 import { IError } from './errorInterface';
 import { IUserCreate } from './usersInterface';
 import { IPayload } from './payloadInterface';
-import { IOrdersList } from './ordersInterface';
+import { IOrdersList, IOrder } from './ordersInterface';
 
 export {
   IProductsList,
@@ -17,4 +17,5 @@ export {
   IPayload,
   IOrdersList,
   IProductIds,
+  IOrder,
 };
