@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { orderSchema } from '../schemas';
-import { IAddOrder } from '../interfaces';
+import { IOrder } from '../interfaces';
 
 const validateOrder = (req: Request, _res: Response, next: NextFunction) => {
-  const order: IAddOrder = req.body;
+  const order: IOrder = req.body;
   const { error } = orderSchema.validate(order);
 
   if (error) {
