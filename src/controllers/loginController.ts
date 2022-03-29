@@ -14,7 +14,7 @@ export default class LoginController {
   public login = async (req: Request, res: Response, _next: NextFunction) => {
     const user: ILogin = req.body;
     const userLogin = await this.service.login(user);
-    console.log(req.body);
+
     const payload: IPayload = {
       id: userLogin[0].id,
       username: userLogin[0].username,
