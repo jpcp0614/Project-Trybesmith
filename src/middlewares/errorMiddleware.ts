@@ -3,24 +3,20 @@ import { StatusCodes } from 'http-status-codes';
 import { IError } from '../interfaces';
 
 const middlewareError = (err: IError, _req: Request, res: Response, next: NextFunction) => {
-  const { message, name, status } = err;
-
-  switch (name || status) {
-    case 'NotFoundError':
-      res.status(StatusCodes.NOT_FOUND).json({ error: message });
-      break;
+  switch (err.name || err.status) {
     case 400:
-      res.status(StatusCodes.BAD_REQUEST).json({ error: message });
+      res.status(StatusCodes.BAD_REQUEST).json({ error: err.message });
       break;
     case 422:
-      res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({ error: message });
+      res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({ error: err.message });
+      break;
+    case 'UnauthorizedError':
+      res.status(StatusCodes.UNAUTHORIZED).json({ error: err.message });
       break;
     default:
-      console.log(err);
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: message });
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: err.message });
       break;
   }
-
   next();
 };
 
