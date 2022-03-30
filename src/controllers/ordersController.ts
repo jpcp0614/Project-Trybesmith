@@ -23,3 +23,6 @@ export default class OrdersController {
     return res.status(StatusCodes.OK).json(orders);
   };
 }
+
+// * Agradeço imensamente ao meu amigo Denis Jonathan por ter me ajudado muito nesse projeto!
+// * Denis é O cara!!!
